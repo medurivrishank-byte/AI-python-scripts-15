@@ -10,8 +10,8 @@ while True:
         print("Error: failed to capture image")
         break
     hsv=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
-    lower_skin=numpy.array([0,20,70],dtype=np.uint8)
-    upper_skin=numpy.array([20,255,255],dtype=np.uint8)
+    lower_skin=np.array([0,20,70],dtype=np.uint8)
+    upper_skin=np.array([20,255,255],dtype=np.uint8)
     mask=cv2.inRange(hsv,lower_skin,upper_skin)
     result=cv2.bitwise_and(frame,frame,mask=mask)
     contours,_=cv2.findContours(mask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
